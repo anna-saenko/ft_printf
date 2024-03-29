@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asaenko <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/29 12:14:31 by asaenko           #+#    #+#             */
+/*   Updated: 2024/03/29 12:15:15 by asaenko          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	ft_parse(const char **format, va_list args)
@@ -24,6 +36,7 @@ int	ft_parse(const char **format, va_list args)
 		count += ft_putchar('%');
 	return (count);
 }
+
 int	ft_printf(const char *format, ...)
 {
 	int		count;

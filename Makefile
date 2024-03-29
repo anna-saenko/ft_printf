@@ -1,30 +1,35 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: asaenko <marvin@42.fr>                     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/03/29 12:21:15 by asaenko           #+#    #+#              #
+#    Updated: 2024/03/29 12:21:17 by asaenko          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libftprintf.a
-LIBFTNAME = libft.a
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
-LIBFTDIR = ./libft
 
 SRCS = 	ft_printf.c \
-		ft_printf_utils.c \
+		ft_putchar.c \
+		ft_putnbr.c \
+		ft_puthex.c \
 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-makelibft:
-	@make -C $(LIBFTDIR)
-	@cp $(LIBFTDIR)/$(LIBFTNAME) .
-	@mv $(LIBFTNAME) $(NAME)
-
-$(NAME): makelibft $(OBJS)
+$(NAME):
 	@ar -r $(NAME) $(OBJS)
 
 clean:
 	@rm -f $(OBJS)
-	@cd $(LIBFTDIR) && make clean
 
 fclean: clean
 	@rm -f $(NAME)
-	@cd $(LIBFTDIR) && make fclean
 
 re: fclean all
