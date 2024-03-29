@@ -23,7 +23,7 @@ OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(OBJS)
 	@ar -r $(NAME) $(OBJS)
 
 clean:
